@@ -1,0 +1,22 @@
+Coisas q faltam fazer:
+
+No código inteiro:
+  mudar o código de barras pra uma String com 6 dígitos
+  tirar uns métodos pra fora da main()
+  //g. O sistema deve permitir a criação de um catálogo de mídias (CD/DVD). Para facilitar a
+identificação na venda para um cliente, o sistema deve armazenar para cada mídia um
+código de barras. O código de barras é um número único composto por seis dígitos. Por
+fim, o sistema deve permitir associar um artista (cantor ou banda) a uma mídia;
+  //TODO: h. Um artista grava um ou mais mídias (CDs ou DVDs), mas uma mídia é gravada por apenas um artista (cantor ou banda).
+  3. [Pesquisar] Sobrescreva o método equals() retornando true se dois produtos
+possuem o mesmo código de barras;
+  4. Implemente uma funcionalidade que mostre a posição de uma mídia no catálogo de
+mídias;
+  5. Implemente as demais funcionalidades para tornar o programa funcional quanto aos
+cenários de execução descrito neste documento.
+
+Na main():
+  //consultar();
+  //excluir();
+  //listar_todos();
+
