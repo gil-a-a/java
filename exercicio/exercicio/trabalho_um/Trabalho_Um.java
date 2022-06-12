@@ -15,10 +15,7 @@ import repositorio.CatalogoRepositorio;
 //Gil de Almeida Alves
 //Pedro Bruce de Lima
 
-//TODO: h. Um artista grava um ou mais mídias (CDs ou DVDs), mas uma mídia é gravada por
-//apenas um artista (cantor ou banda).
-
-public class Trabalho_Um {
+public class Demo {
     private static ArtistaRepositorio artistas = new ArtistaRepositorio();
     private static CatalogoRepositorio catalogos = new CatalogoRepositorio();
     private static Scanner ler = new Scanner(System.in);
@@ -34,9 +31,9 @@ public class Trabalho_Um {
             System.out.println("4 - Listar todos");
             System.out.println("5 - Sair");
             System.out.println("--------------------------------------");
-
+            
             botao = ler.nextInt();
-
+            
             switch (botao){
                 case 1: 
                     cadastrar();
@@ -82,7 +79,7 @@ public class Trabalho_Um {
             switch(opcao) {
                 case 1:
                     cadastraCd(codigoBarras);
-                    //System.out.println(catalogos);
+                    //System.out.println(catalogos);    esses sout são só pra teste
                 break;
                 
                 case 2:
@@ -111,9 +108,19 @@ public class Trabalho_Um {
         double preco;
         int numFaixas;
         
-        System.out.println("Nome do CD: ");
-        nome = ler.next();
-        ler.nextLine();    //coloquei esse nextLine() aq, o enter na tava sendo lido na próxima leitura
+        while(true){
+            System.out.println("Nome do CD: ");
+            nome = ler.next();
+            
+            //compara os nomes pra ver se tem repetido
+            if (catalogos.nomeRepetido(nome){
+                break;
+            }
+            else{
+                System.out.println("Nome repetido");
+            }
+        }
+        ler.nextLine();    //coloquei esse nextLine() aq, o enter tava sendo lido na próxima leitura
         System.out.println("Preço do CD: ");
         preco = ler.nextDouble();
         System.out.println("Número de faixas do CD: ");
@@ -130,9 +137,19 @@ public class Trabalho_Um {
         double preco;
         int tempoDuracao;
 
-        System.out.println("Nome do DVD: ");
-        nome = ler.next();
-        ler.nextLine();    //coloquei esse nextLine() aq, o enter na tava sendo lido na próxima leitura
+        while(true){
+            System.out.println("Nome do DVD: ");
+            nome = ler.next();
+            
+            //compara os nomes pra ver se tem repetido
+            if (catalogos.nomeRepetido(nome){
+                break;
+            }
+            else{
+                System.out.println("Nome repetido");
+            }
+        }
+        ler.nextLine();    //coloquei esse nextLine() aq, o enter tava sendo lido na próxima leitura
         System.out.println("Preço do DVD: ");
         preco = ler.nextDouble();
         System.out.println("Tempo de duração do DVD: ");
@@ -148,28 +165,113 @@ public class Trabalho_Um {
         String nome;
         int tempoCarreira;
 
-        System.out.println("Nome do cantor: ");
-        nome = ler.next();
-        ler.nextLine();    //coloquei esse nextLine() aq, o enter na tava sendo lido na próxima leitura
+        while(true){
+            System.out.println("Nome do cantor: ");
+            nome = ler.next();
+            
+            //compara os nomes pra ver se tem repetido
+            if (artistas.nomeRepetido(nome){
+                break;
+            }
+            else{
+                System.out.println("Nome repetido");
+            }
+        }
+        ler.nextLine();    //coloquei esse nextLine() aq, o enter tava sendo lido na próxima leitura
         System.out.println("Coloque o tempo de carreira do cantor: ");
         tempoCarreira = ler.nextInt();
 
         Cantor cantorNovo = new Cantor(nome, tempoCarreira);
         artistas.addArtista(cantorNovo);
-
     }
 
     public static void cadastraBanda() {
         String nome;
         int numIntegrantes;
 
-        System.out.println("Nome da banda: ");
-        nome = ler.next();
-        ler.nextLine();    //coloquei esse nextLine() aq, o enter na tava sendo lido na próxima leitura
+        while(true){
+            System.out.println("Nome da banda: ");
+            nome = ler.next();
+            
+            //compara os nomes pra ver se tem repetido
+            if (artistas.nomeRepetido(nome){
+                break;
+            }
+            else{
+                System.out.println("Nome repetido");
+            }
+        }
+        ler.nextLine();    //coloquei esse nextLine() aq, o enter tava sendo lido na próxima leitura
         System.out.println("Número de integrantes da banda: ");
         numIntegrantes = ler.nextInt();
 
         Banda bandaNovo = new Banda(nome, numIntegrantes);
         artistas.addArtista(bandaNovo);
     }
+    
+    public static void consultar(){
+        do {
+            System.out.println("1 - Consultar CD");
+            System.out.println("2 - Consultar DVD");
+            System.out.println("3 - Consultar Cantor");
+            System.out.println("4 - Consultar Banda");
+            System.out.println("5 - Retornar ao menu");
+
+            opcao = ler.nextInt();
+            
+            switch(opcao) {
+                case 1:
+                    consultaCd();
+                break;
+                
+                case 2:
+                    consultaDvd();
+                break;
+                
+                case 3:
+                    consultaCantor();
+                break;
+                
+                case 4:
+                    consultaBanda();
+                break;
+                
+                default: System.out.println("Opcao invalida.");
+            }
+        }while(opcao != 5);
+        System.out.println("Retornando ao menu.....");
+    }
+    
+    public static void consultaCd(){
+        String nome;
+        
+        nome = ler.next();
+        catalogos.consultaNome(nome);
+        
+        //ve se tem o nome;
+        //se tiver: printa;
+        //senão: vaza;
+    }
+    
+    public static void consultaDvd(){
+        //le o nome;
+        //ve se tem o nome;
+        //se tiver: printa;
+        //senão: vaza;
+    }
+    
+    public static void consultaCantor(){
+        //le o nome;
+        //ve se tem o nome;
+        //se tiver: printa;
+        //senão: vaza;
+    }
+    
+    public static void consultaBanda(){
+        //le o nome;
+        //ve se tem o nome;
+        //se tiver: printa;
+        //senão: vaza;
+    }
+    
 }
